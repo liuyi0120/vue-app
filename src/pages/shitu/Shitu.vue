@@ -1,6 +1,6 @@
 <template>
   <div>
-Classify
+    shitu
   </div>
 </template>
 

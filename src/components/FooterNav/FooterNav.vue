@@ -1,22 +1,22 @@
 <template>
   <div class="bottom-tab">
-    <div class="tab-item" @click="goTo('/home')">
+    <div class="tab-item" :class="{on: $route.path==='/home'}" @click="goTo('/home')">
       <span><i class="iconfont icon-icon_home"></i></span>
       <span>首页</span>
     </div>
-    <div class="tab-item" @click="goTo('/classify')">
+    <div class="tab-item" :class="{on: $route.path==='/classify'}" @click="goTo('/classify')">
       <span><i class="iconfont icon-iconfl"></i></span>
       <span>分类</span>
     </div>
-    <div class="tab-item">
+    <div class="tab-item" :class="{on: $route.path==='/shitu'}" @click="goTo('/shitu')">
       <span><i class="iconfont icon-icon_home"></i></span>
       <span>识物</span>
     </div>
-    <div class="tab-item" @click="goTo('/shop')">
+    <div class="tab-item" :class="{on: $route.path==='/shop'}" @click="goTo('/shop')">
       <span><i class="iconfont icon-gouwuche"></i></span>
       <span>购物车</span>
     </div>
-    <div class="tab-item" :class="{on: $route.path==='/profile'}" @click="goTo('/personal')">
+    <div class="tab-item" :class="{on: $route.path==='/personal'}" @click="goTo('/personal')">
       <span><i class="iconfont icon-user"></i></span>
       <span>个人</span>
     </div>
@@ -35,7 +35,7 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   .bottom-tab
-    height 98px
+    height 49px
     width 100%
     display flex
     position absolute
@@ -47,10 +47,10 @@ export default {
       flex-direction column
       align-items center
       color #666
-      font-size 25px
-      .on
+      font-size 17px
+      &.on
         color red
       span
-        i
-          font-size 40px
+        .iconfont
+          font-size 20px
 </style>
