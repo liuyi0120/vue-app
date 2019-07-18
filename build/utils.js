@@ -28,10 +28,21 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
-
+  /*  const px2remLoader = {
+     loader: 'px2rem-loader',
+     options: {
+       remUnit: 64
+     }
+   } */
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
-    const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
+  const px2remLoader = {
+    loader: 'px2rem-loader',
+    options: {
+      remUnit: 75 // 设计图的1/10
+    }
+  }
+  function generateLoaders(loader, loaderOptions, anotherLoader) {
+    const loaders = options.usePostCSS ? [cssLoader, postcssLoader, px2remLoader] : [cssLoader, px2remLoader]
 
     if (loader) {
       loaders.push({
@@ -41,6 +52,7 @@ exports.cssLoaders = function (options) {
         })
       })
     }
+    if (!!anotherLoader) loaders.push(anotherLoader)
 
     // Extract CSS when that option is specified
     // (which is the case during production build)

@@ -1,8 +1,8 @@
 <template>
-  <div class="bottom-tab">
+  <div id="footer-tab" class="border-1px">
     <div class="tab-item" :class="{on: $route.path==='/home'}" @click="goTo('/home')">
       <span><i class="iconfont icon-icon_home"></i></span>
-      <span>首页</span>
+      <span class="text">首页</span>
     </div>
     <div class="tab-item" :class="{on: $route.path==='/classify'}" @click="goTo('/classify')">
       <span><i class="iconfont icon-iconfl"></i></span>
@@ -34,23 +34,30 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  .bottom-tab
-    height 49px
-    width 100%
+  @import "../../common/stylus/mixins.styl"
+  #footer-tab
     display flex
-    position absolute
+    width 100%
+    height 100px
+    box-sizing border-box
+    padding 12px
+    background-color #fff
+    top-border-1px(#666)
+    position fixed
+    left 0
     bottom 0
-    justify-content space-around
     align-items center
+    z-index 100
     .tab-item
+      flex 1
       display flex
       flex-direction column
       align-items center
-      color #666
-      font-size 17px
       &.on
-        color red
-      span
-        .iconfont
-          font-size 20px
+         color red
+      .iconfont
+        font-size 40px
+      .text
+        font-size 30px
+        color #666
 </style>
